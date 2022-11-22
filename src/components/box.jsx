@@ -7,8 +7,8 @@ export default function Box(props) {
     }
 
     return (
-        <div className="box" key={props.id} status={props.status} style={toggleColor}>
-            {props.id}
+        <div className="box" key={props.id} status={props.status} style={toggleColor} onClick={()=>props.handleClick(props.id)}>
+            {/* {props.id} */}
         </div>
     );
 }
