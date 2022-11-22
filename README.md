@@ -16,22 +16,13 @@ the styling is done dyamically by declaring a style variable as
 ```
 
 **upon clicking the boxes each box's status is changed from on to off and viceversa into the ```boxes.js``` array file**
-thus we can update the array dynamically through the function ```toggle``` as 
+thus we can update the array dynamically through the function ```toggle```  
 ```
-setSquares((prevSquares) => {
-            const newSquares = [];
-            for (let i = 0; i < prevSquares.length; i++) {
-                const currentSquare = prevSquares[i];
-                if (currentSquare.id === id) {
-                    const updatedSquare = {
-                        ...currentSquare,
-                        on: !currentSquare.on,
-                    };
-                    newSquares.push(updatedSquare);
-                } else {
-                    newSquares.push(currentSquare);
-                }
-            }
-            return newSquares;
+setSquares((prevSquare) => {
+            return prevSquare.map((square) => {
+                return square.id === id
+                    ? { ...square, on: !square.on }
+                    : square;
+            });
         });
 ```
